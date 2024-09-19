@@ -83,6 +83,7 @@ public class Sender {
                 out.flush();
                 
                 Packet ackPacket = (Packet) in.readObject();
+                Thread.sleep(networkLayer.traffic() * 1000);
                 if (ackPacket.ACK == 0) {
                     i--; // Retransmit the packet if ACK is not received
                 }

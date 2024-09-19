@@ -72,6 +72,7 @@ public class Receiver {
                         out.flush();
                         break;
                     } else {
+                        Thread.sleep(networkLayer.traffic() * 1000);
                         out.writeObject(new Packet(1, packet.S_add, packet.D_add));
                         out.flush();
                     }
